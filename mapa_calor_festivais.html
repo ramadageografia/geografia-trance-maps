@@ -1,0 +1,42 @@
+import folium
+from folium.plugins import HeatMap
+import random
+
+# Criar mapa base
+mapa = folium.Map(
+    location=[-15, -50],  # Centro no Brasil
+    zoom_start=3,
+    tiles='CartoDB dark_matter'  # Estilo escuro
+)
+
+# Dados de exemplo - festivais com intensidade
+festivais = [
+    # [lat, lon, intensidade]
+    [-16.4479, -39.0472, 0.9],  # Universo Paralello
+    [39.6000, -8.7900, 0.8],    # Boom Festival
+    [16.7363, -92.6376, 0.7],   # Ometeotl Mexico
+    [15.2993, 74.1240, 0.6],    # Goa, India
+    [-33.9249, 18.4241, 0.5],   # África do Sul
+    [35.6762, 139.6503, 0.4],   # Tóquio
+    # Adicione mais dados reais aqui...
+]
+
+# Criar mapa de calor
+HeatMap(
+    festivais,
+    min_opacity=0.3,
+    max_zoom=8,
+    radius=25,
+    blur=15,
+    gradient={
+        0.2: 'blue',
+        0.4: 'cyan', 
+        0.6: 'lime',
+        0.8: 'yellow',
+        1.0: 'red'
+    }
+).add_to(mapa)
+
+# Salvar e mostrar
+mapa.save('mapa_calor_festivais.html')
+mapa

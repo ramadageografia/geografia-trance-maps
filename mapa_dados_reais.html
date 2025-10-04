@@ -1,0 +1,50 @@
+import pandas as pd
+
+# Criar DataFrame com seus dados
+def criar_dados_geografia_trance():
+    festivais_data = {
+        'festival': [
+            'Universo Paralello', 'Boom Festival', 'Ometeotl', 
+            'Ozora', 'Antaris', 'Modem'
+        ],
+        'pais': ['Brasil', 'Portugal', 'México', 'Hungria', 'Alemanha', 'Croácia'],
+        'lat': [-16.4479, 39.6000, 16.7363, 46.8419, 51.1657, 45.8150],
+        'lon': [-39.0472, -8.7900, -92.6376, 17.2919, 10.4515, 15.9819],
+        'intensidade': [0.9, 0.8, 0.7, 0.8, 0.6, 0.7],
+        'artistas': [150, 200, 80, 180, 120, 90]
+    }
+    
+    return pd.DataFrame(festivais_data)
+
+# Usar dados estruturados
+df = criar_dados_geografia_trance()
+print(df.head())
+
+# Criar mapa com dados reais
+mapa_real = folium.Map(location=[20, 0], zoom_start=2)
+
+# Preparar dados para calor
+dados_calor = []
+for _, row in df.iterrows():
+    dados_calor.append([row['lat'], row['lon'], row['intensidade']])
+
+# Adicionar calor
+HeatMap(dados_calor).add_to(mapa_real)
+
+# Adicionar marcadores individuais
+for _, row in df.iterrows():
+    folium.CircleMarker(
+        location=[row['lat'], row['lon']],
+        radius=row['artistas'] / 20,
+        popup=f"""
+        <b>{row['festival']}</b><br>
+        País: {row['pais']}<br>
+        Artistas: {row['artistas']}<br>
+        Intensidade: {row['intensidade']}
+        """,
+        color='#ff6b6b',
+        fill=True
+    ).add_to(mapa_real)
+
+mapa_real.save('mapa_dados_reais.html')
+mapa_real

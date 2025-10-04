@@ -1,0 +1,63 @@
+import folium
+import pandas as pd
+
+# Criar mapa
+mapa_fluxos = folium.Map(
+    location=[0, 0],
+    zoom_start=2,
+    tiles='CartoDB dark_matter'
+)
+
+# Dados de fluxos entre países
+fluxos = [
+    {
+        'origem': [-23.5505, -46.6333],  # São Paulo
+        'destino': [38.7223, -9.1393],   # Lisboa
+        'artistas': 25,
+        'rotulo': 'BR → PT'
+    },
+    {
+        'origem': [-23.5505, -46.6333],  # São Paulo
+        'destino': [52.5200, 13.4050],   # Berlim
+        'artistas': 18,
+        'rotulo': 'BR → DE'
+    },
+    {
+        'origem': [15.2993, 74.1240],    # Goa
+        'destino': [38.7223, -9.1393],   # Lisboa
+        'artistas': 12,
+        'rotulo': 'IN → PT'
+    }
+]
+
+# Adicionar fluxos ao mapa
+for fluxo in fluxos:
+    # Linha de conexão
+    folium.PolyLine(
+        locations=[fluxo['origem'], fluxo['destino']],
+        weight=fluxo['artistas'] / 5,  # Espessura proporcional
+        color='#ff6b6b',
+        opacity=0.7,
+        popup=f"{fluxo['rotulo']}: {fluxo['artistas']} artistas"
+    ).add_to(mapa_fluxos)
+    
+    # Marcador de origem
+    folium.CircleMarker(
+        location=fluxo['origem'],
+        radius=8,
+        color='#4ecdc4',
+        fill=True,
+        popup='Origem'
+    ).add_to(mapa_fluxos)
+    
+    # Marcador de destino
+    folium.CircleMarker(
+        location=fluxo['destino'],
+        radius=8, 
+        color='#45b7d1',
+        fill=True,
+        popup='Destino'
+    ).add_to(mapa_fluxos)
+
+mapa_fluxos.save('mapa_fluxos.html')
+mapa_fluxos
