@@ -1,0 +1,45 @@
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Preparar dados para animação
+df_events = pd.DataFrame([
+    {'ano': 1986, 'local': 'Goa', 'lat': 15.2993, 'lon': 74.1240, 'evento': 'Goa Trance', 'tipo': 'origem'},
+    {'ano': 1988, 'local': 'Frankfurt', 'lat': 50.1109, 'lon': 8.6821, 'evento': 'Acid House', 'tipo': 'origem'},
+    {'ano': 1993, 'local': 'Londres', 'lat': 51.5074, 'lon': -0.1278, 'evento': 'Dragonfly Records', 'tipo': 'selo'},
+    {'ano': 1997, 'local': 'Israel', 'lat': 32.0853, 'lon': 34.7818, 'evento': 'Psytrance Israel', 'tipo': 'cena'},
+    {'ano': 2003, 'local': 'Amsterdã', 'lat': 52.3676, 'lon': 4.9041, 'evento': 'Armada Music', 'tipo': 'selo'},
+    {'ano': 2008, 'local': 'São Paulo', 'lat': -23.5505, 'lon': -46.6333, 'evento': 'Universo Paralello', 'tipo': 'festival'},
+])
+
+# Mapa animado por ano
+fig = px.scatter_geo(
+    df_events,
+    lat='lat',
+    lon='lon',
+    text='evento',
+    animation_frame='ano',
+    size_max=20,
+    color='tipo',
+    hover_name='evento',
+    projection='natural earth',
+    title='Evolução Histórica do Trance (1986-2010)',
+    color_discrete_map={
+        'origem': '#FF6B35',
+        'selo': '#6A0DAD',
+        'cena': '#0033CC',
+        'festival': '#00FF41'
+    }
+)
+
+fig.update_layout(
+    geo=dict(
+        showland=True,
+        landcolor='#F5F5DC',
+        showocean=True,
+        oceancolor='#C8E8FF'
+    ),
+    font=dict(family="Arial", size=12)
+)
+
+fig.show()
