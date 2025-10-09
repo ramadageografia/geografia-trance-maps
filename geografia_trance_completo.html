@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ff862b9643d27e93383b8028269a176f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; 
+        top: 10px; 
+        left: 10px; 
+        background: rgba(15, 31, 46, 0.95);
+        color: white; 
+        padding: 15px; 
+        border-radius: 10px;
+        z-index: 1000;
+        font-family: Arial;
+        font-size: 12px;
+        border: 2px solid #FF6B6B;
+        max-width: 220px;
+        backdrop-filter: blur(5px);
+    ">
+        <h4 style="margin: 0 0 12px 0; text-align: center; color: #FF6B6B;">🎪 GEOGRAFIA DO TRANCE</h4>
+        <div style="margin-bottom: 6px; display: flex; align-items: center;">
+            <div style="width: 12px; height: 12px; background: #FF6B6B; border-radius: 50%; margin-right: 8px;"></div>
+            <span>Festival Principal</span>
+        </div>
+        <div style="margin-bottom: 6px; display: flex; align-items: center;">
+            <div style="width: 12px; height: 12px; background: #4ECDC4; border-radius: 50%; margin-right: 8px;"></div>
+            <span>Festival Grande</span>
+        </div>
+        <div style="margin-bottom: 6px; display: flex; align-items: center;">
+            <div style="width: 12px; height: 12px; background: #45B7D1; border-radius: 50%; margin-right: 8px;"></div>
+            <span>Festival Regional</span>
+        </div>
+        <div style="margin-bottom: 6px; display: flex; align-items: center;">
+            <div style="width: 12px; height: 12px; background: #96CEB4; border-radius: 50%; margin-right: 8px;"></div>
+            <span>Festival Local</span>
+        </div>
+        <div style="margin-bottom: 0; display: flex; align-items: center;">
+            <div style="width: 12px; height: 12px; background: #C44D58; border-radius: 50%; margin-right: 8px;"></div>
+            <span>Festival Underground</span>
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_ff862b9643d27e93383b8028269a176f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ff862b9643d27e93383b8028269a176f = L.map(
+                "map_ff862b9643d27e93383b8028269a176f",
+                {
+                    center: [-15.0, -50.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 3,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_ff862b9643d27e93383b8028269a176f);
+
+            
+
+        
+    
+            var tile_layer_ae8c9d251d403426fa35e425806663b3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ae8c9d251d403426fa35e425806663b3.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var feature_group_374b97b99bdf87858d658efacfd0893c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_374b97b99bdf87858d658efacfd0893c.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var feature_group_bdbc6b8a4f37666841a0e6ef2615666b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_bdbc6b8a4f37666841a0e6ef2615666b.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var feature_group_2d01494e4de33db3c98b1114e166be1e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_2d01494e4de33db3c98b1114e166be1e.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var feature_group_76755e7ea3c29fb7eb2a4dc77a92d26e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_76755e7ea3c29fb7eb2a4dc77a92d26e.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var feature_group_4ba193e7ad8dd2d60c12fc86ebc54b22 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_4ba193e7ad8dd2d60c12fc86ebc54b22.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var feature_group_45a1e15580d83e126b2e62c880a32421 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_45a1e15580d83e126b2e62c880a32421.addTo(map_ff862b9643d27e93383b8028269a176f);
+        
+    
+            var layer_control_e320d9e6d78538ddeb41a2808273cd69_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_ae8c9d251d403426fa35e425806663b3,
+                },
+                overlays :  {
+                    "\ud83c\udfb5 Festival Principal" : feature_group_374b97b99bdf87858d658efacfd0893c,
+                    "\ud83c\udfb5 Festival Grande" : feature_group_bdbc6b8a4f37666841a0e6ef2615666b,
+                    "\ud83c\udfb5 Festival Regional" : feature_group_2d01494e4de33db3c98b1114e166be1e,
+                    "\ud83c\udfb5 Festival Local" : feature_group_76755e7ea3c29fb7eb2a4dc77a92d26e,
+                    "\ud83c\udfb5 Festival Underground" : feature_group_4ba193e7ad8dd2d60c12fc86ebc54b22,
+                    "\ud83c\udfb5 Outros" : feature_group_45a1e15580d83e126b2e62c880a32421,
+                },
+            };
+            let layer_control_e320d9e6d78538ddeb41a2808273cd69 = L.control.layers(
+                layer_control_e320d9e6d78538ddeb41a2808273cd69_layers.base_layers,
+                layer_control_e320d9e6d78538ddeb41a2808273cd69_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_ff862b9643d27e93383b8028269a176f);
+
+        
+</script>
+</html>
