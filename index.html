@@ -1,69 +1,240 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geografia do Trance - Mapas Interativos</title>
+    <title>Psytrance Festivals: A Geografia de um Circuito Global</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f1f2e;
-            color: white;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
         }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 20px;
-            text-align: center;
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .map-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        .map-card {
-            background: #1e2b3a;
-            padding: 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.3s;
-        }
-        .map-card:hover {
-            transform: translateY(-5px);
-            background: #2a3b4f;
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <h1>🎪 Geografia do Trance</h1>
-        <p>Mapas interativos da cultura psytrance global</p>
+<body class="text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center my-12">
+            <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b6b] to-[#feca57]">A Produção do Espaço nos Festivais de Psytrance</h1>
+            <p class="text-xl mt-4 max-w-3xl mx-auto text-gray-300">Uma análise da relação entre espiritualidade, música e a criação de espaços subjetivos e geográficos no circuito global de festivais.</p>
+        </header>
+
+        <main>
+            <section id="process" class="mb-16">
+                 <div class="bg-[#2d2d2d] rounded-2xl shadow-2xl p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center mb-2 text-[#ff9f43]">Da Música ao Espaço: Uma Jornada Subjetiva</h2>
+                    <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">Festivais de Psytrance transcendem a música; eles são processos ativos de criação de espaço, onde a interação entre som, ambiente e consciência individual gera novas realidades subjetivas e coletivas.</p>
+                    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 text-center">
+                        <div class="flex-1 p-4 bg-[#1a1a1a] rounded-lg">
+                            <div class="text-4xl mb-2">🎵</div>
+                            <h3 class="text-lg font-bold text-[#ff6b6b]">Música Psicadélica</h3>
+                            <p class="text-sm text-gray-400">O gatilho sônico que altera a percepção do tempo e do espaço.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-[#feca57] self-center mx-4">→</div>
+                        <div class="flex-1 p-4 bg-[#1a1a1a] rounded-lg">
+                             <div class="text-4xl mb-2">🧘</div>
+                            <h3 class="text-lg font-bold text-[#ff6b6b]">Espiritualidade Contemporânea</h3>
+                            <p class="text-sm text-gray-400">Busca por transcendência e conexão coletiva fora de dogmas tradicionais.</p>
+                        </div>
+                        <div class="text-2xl font-bold text-[#feca57] self-center mx-4">→</div>
+                        <div class="flex-1 p-4 bg-[#1a1a1a] rounded-lg">
+                            <div class="text-4xl mb-2">🌍</div>
+                            <h3 class="text-lg font-bold text-[#ff6b6b]">Produção de Espaço</h3>
+                            <p class="text-sm text-gray-400">Criação de um "lugar" temporário com identidade e significado próprios.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="geography" class="mb-12">
+                <h2 class="text-4xl font-bold text-center mb-8 text-[#feca57]">A Geografia dos Circuitos de Festivais</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-[#2d2d2d] rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-[#ff9f43]">Cidades Anfitriãs e Suas Transformações</h3>
+                        <p class="text-gray-400 mb-6">Pequenas localidades rurais se tornam epicentros globais temporários, experimentando um intenso fluxo de pessoas, culturas e capital. Essa transformação, embora passageira, deixa marcas duradouras na infraestrutura local e na percepção da comunidade.</p>
+                         <div class="text-center">
+                            <span class="text-5xl font-black text-[#ff6b6b]">+500%</span>
+                            <p class="text-gray-300">Aumento populacional médio durante um grande festival em áreas rurais.</p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 lg:col-span-2 bg-[#2d2d2d] rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-[#ff9f43]">Economia em Torno dos Festivais</h3>
+                        <p class="text-gray-400 mb-4">A economia de um festival é um ecossistema complexo, injetando receita significativa em setores que vão desde a hotelaria e alimentação até serviços de transporte e artesanato local. O gráfico abaixo detalha a distribuição estimada do impacto econômico direto gerado por um festival de médio porte.</p>
+                        <div class="chart-container h-[40vh] max-h-[450px]">
+                            <canvas id="economiaChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 lg:col-span-3 bg-[#2d2d2d] rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
+                         <h3 class="text-2xl font-bold mb-4 text-[#ff9f43]">Turismo e Intercâmbio Cultural</h3>
+                         <p class="text-gray-400 mb-6">Os festivais são poderosos motores de turismo, atraindo um público diversificado de todo o mundo. Este intercâmbio não é apenas econômico, mas profundamente cultural, criando um caldeirão de ideias, artes e modos de vida. A análise da origem dos participantes revela a natureza global do circuito.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="chart-container h-[40vh] max-h-[400px]">
+                                <canvas id="turismoChart"></canvas>
+                            </div>
+                            <div class="text-center md:text-left">
+                                <h4 class="text-2xl font-bold text-[#feca57]">Um Mosaico Global</h4>
+                                <p class="text-gray-300 mt-2">Cerca de 45% do público de grandes festivais europeus, como o Boom Festival em Portugal, é internacional, representando mais de 150 nacionalidades. Esse encontro promove uma rara oportunidade de imersão e troca cultural em um ambiente de celebração e respeito mútuo.</p>
+                                <div class="mt-6">
+                                    <div class="flex items-center justify-center md:justify-start space-x-2">
+                                        <span class="text-3xl">✈️</span>
+                                        <p class="text-lg">Público de <strong>+150 países</strong></p>
+                                    </div>
+                                    <div class="flex items-center justify-center md:justify-start space-x-2 mt-2">
+                                        <span class="text-3xl">🤝</span>
+                                        <p class="text-lg">Fomento à <strong>tolerância e diversidade</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center py-8 mt-12 border-t border-gray-700">
+            <p class="text-gray-500">&copy; 2025 Análise Geográfica do Psytrance. Todos os dados são estimativas baseadas em estudos de caso do setor.</p>
+        </footer>
+
     </div>
 
-    <div class="container">
-        <div class="map-links">
-            <a href="mapa-calor.html" class="map-card">
-                <h3>🔥 Mapa de Calor</h3>
-                <p>Intensidade dos festivais pelo mundo</p>
-            </a>
-            
-            <a href="mapa-fluxos.html" class="map-card">
-                <h3>🔄 Mapa de Fluxos</h3>
-                <p>Rotas de artistas entre países</p>
-            </a>
-            
-            <a href="mapa-completo.html" class="map-card">
-                <h3>🗺️ Mapa Completo</h3>
-                <p>Visualização completa com todos os dados</p>
-            </a>
-        </div>
-    </div>
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+        
+        const economiaCtx = document.getElementById('economiaChart').getContext('2d');
+        const originalEconomiaLabels = ['Hospedagem e Alimentação Local', 'Transporte e Logística', 'Staff e Produção', 'Artistas e Performances', 'Artesanato e Comércio Interno', 'Taxas e Licenças Municipais'];
+        new Chart(economiaCtx, {
+            type: 'bar',
+            data: {
+                labels: originalEconomiaLabels.map(wrapLabel),
+                datasets: [{
+                    label: 'Impacto Econômico Direto (Estimativa em %)',
+                    data: [35, 20, 15, 12, 10, 8],
+                    backgroundColor: ['#ff6b6b', '#ff9f43', '#feca57', '#48dbfb', '#1dd1a1', '#ff7979'],
+                    borderColor: '#2d2d2d',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                           color: '#e5e7eb'
+                        }
+                    },
+                    y: {
+                         grid: {
+                            display: false
+                        },
+                        ticks: {
+                           color: '#e5e7eb'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const turismoCtx = document.getElementById('turismoChart').getContext('2d');
+        new Chart(turismoCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Público Internacional', 'Público Nacional', 'Público Regional'],
+                datasets: [{
+                    label: 'Origem do Público',
+                    data: [45, 35, 20],
+                    backgroundColor: ['#ff6b6b', '#feca57', '#1dd1a1'],
+                    borderColor: '#2d2d2d',
+                    borderWidth: 5,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#e5e7eb',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                       callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
